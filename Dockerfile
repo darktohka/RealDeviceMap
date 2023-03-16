@@ -1,7 +1,7 @@
 # ================================
 # Build image
 # ================================
-FROM swiftarm/swift:5.5.3-ubuntu-focal-slim as build
+FROM swiftarm/swift:5.5.3-ubuntu-focal as build
 WORKDIR /build
 
 # Perfect-COpenSSL
@@ -42,7 +42,7 @@ RUN swift build -c release -Xswiftc -g
 # ================================
 # Run image
 # ================================
-FROM swiftarm/swift:5.5.3-ubuntu-focal-slim
+FROM swiftarm/swift:5.5.3-ubuntu-focal
 WORKDIR /app
 
 # Perfect-COpenSSL
