@@ -22,7 +22,7 @@ RUN apt-get -y update && apt-get install -y wget
 # MySQL Client
 RUN apt-get -y update && \
 	apt-get install -y lsb-release mysql-client libmysqlclient-dev && \
-	sed -i -e 's/-fabi-version=2 -fno-omit-frame-pointer//g' /usr/lib/x86_64-linux-gnu/pkgconfig/mysqlclient.pc
+	sed -i -e 's/-fabi-version=2 -fno-omit-frame-pointer//g' /usr/lib/*/pkgconfig/mysqlclient.pc
 
 # Pre-Build
 COPY Package.swift Package.swift
@@ -64,7 +64,7 @@ RUN apt-get -y update && apt-get install -y wget
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y update && \
 	apt-get install -y lsb-release mysql-client libmysqlclient-dev && \
-	sed -i -e 's/-fabi-version=2 -fno-omit-frame-pointer//g' /usr/lib/x86_64-linux-gnu/pkgconfig/mysqlclient.pc
+	sed -i -e 's/-fabi-version=2 -fno-omit-frame-pointer//g' /usr/lib/*/pkgconfig/mysqlclient.pc
 
 # Copy build artifacts
 COPY --from=build /build/.build/release .
