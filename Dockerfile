@@ -1,7 +1,7 @@
 # ================================
 # Build image
 # ================================
-FROM swift:5.7-focal as build
+FROM swiftarm/swift:5.4.3-focal-multi-arch as build
 WORKDIR /build
 
 # Perfect-COpenSSL
@@ -42,7 +42,7 @@ RUN swift build -c release -Xswiftc -g
 # ================================
 # Run image
 # ================================
-FROM swift:5.7-focal
+FROM swiftarm/swift:5.4.3-focal-multi-arch
 WORKDIR /app
 
 # Perfect-COpenSSL
